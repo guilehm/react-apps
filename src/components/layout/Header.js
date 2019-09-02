@@ -5,7 +5,7 @@ function Header() {
         <header style={headerStyle}>
             <h1>TodoList</h1>
         </header>
-    )  
+    )
 }
 
 const headerStyle = {
