@@ -25,8 +25,8 @@ class App extends Component {
   }
 
 
-  markComplete = (e) => {
-    console.log('hello')
+  markComplete = (id) => {
+    console.log(id)
 }
 
 
@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>App</h1>
-          <Todos todos={this.state.todos} markComplete={this.markComplete} />
+          <Todos todos={this.state.todos} markComplete={this.markComplete } />
       </div>
     );
   }
