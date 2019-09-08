@@ -12,9 +12,7 @@ const BASEURL = 'https://gui-pets.herokuapp.com/api';
 class App extends Component {
     state = {
         pets: [],
-        filters: {
-            sex: null
-        }
+        sex: null,
     }
 
     componentDidMount() {
@@ -34,12 +32,12 @@ class App extends Component {
         axios.get(url)
             .then(res => this.setState({
                 pets: res.data.results,
+                sex: obj.sex,
             }))
             .catch((e => console.log(e)))
     }
 
     render() {
-        console.log(this.state.filters)
         return (
             <div className="App">
                 <Header />
