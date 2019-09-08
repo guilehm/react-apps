@@ -10,16 +10,15 @@ class App extends Component {
         pets: []
     }
 
-    getPets() {
+    componentDidMount() {
         axios.get('https://gui-pets.herokuapp.com/api/pets/')
             .then(res => this.setState({
                 pets: res.data.results
             }))
-            .catch(console.log('error'))
+            .catch((e => console.log(e)))
     }
 
     render() {
-        this.getPets()
         return (
             <div className="App">
                 <Header />
