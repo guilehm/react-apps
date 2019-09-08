@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 
 class Pet extends Component {
 
-    
-
     getPetMarkup() {
         let url = 'https://gui-pets.herokuapp.com/api/pets/';
         return this.props.pets.map((pet) => (
@@ -21,11 +19,10 @@ class Pet extends Component {
     }
 
     render() {
-        return (<div className="row">
-            <div className="col-sm-6">
+        return (
+            <div className="card-group">
                 {this.getPetMarkup()}
             </div>
-        </div>
         )
     }
 }
