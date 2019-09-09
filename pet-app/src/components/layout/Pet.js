@@ -21,7 +21,7 @@ class Pet extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div className="container-fluid">
                 <label>Sex:</label>
                 <select name="sex" 
                         onChange={this.props.filterPets}
@@ -31,16 +31,14 @@ class Pet extends Component {
                     <option value="not_identified">Não identificado</option>
                     <option value="null">Todos</option>
                 </select>
-                <div className="card-group">
-                    {this.getPetMarkup()}
-                </div>
-            </React.Fragment>
+                <div className="card-group">{this.getPetMarkup()}</div>
+            </div>
         )
     }
 }
 
 const cardStyle = {
-    // width: '18rem',
+    maxWidth: '18rem',
 }
 
 export default Pet;
