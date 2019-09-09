@@ -24,15 +24,17 @@ class App extends Component {
     }
 
     filterPets = (event) => {
-        let obj = {
-            [event.target.name]: event.target.value
+        let value = event.target.value
+        let obj = {};
+        if (value !== 'null') {
+            obj[event.target.name] = value
         }
         let query = queryString.stringify(obj)
         let url = `${BASEURL}/pets/?${query}`
         axios.get(url)
             .then(res => this.setState({
                 pets: res.data.results,
-                sex: obj.sex,
+                sex: obj ? obj.sex : null,
             }))
             .catch((e => console.log(e)))
     }

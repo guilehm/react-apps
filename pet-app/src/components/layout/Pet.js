@@ -24,9 +24,10 @@ class Pet extends Component {
             <React.Fragment>
                 <label>Sex:</label>
                 <select name="sex" onChange={this.props.filterPets}>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="not_identified">Not Identified</option>
+                    <option value="male">Macho</option>
+                    <option value="female">Fêmea</option>
+                    <option value="not_identified">Não identificado</option>
+                    <option value="null">Todos</option>
                 </select>
                 <div className="card-group">
                     {this.getPetMarkup()}
