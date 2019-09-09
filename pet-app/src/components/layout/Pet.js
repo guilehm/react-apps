@@ -38,7 +38,7 @@ class Pet extends Component {
 }
 
 const cardStyle = {
-    maxWidth: '18rem',
+    maxWidth: '24rem',
 }
 
 export default Pet;
