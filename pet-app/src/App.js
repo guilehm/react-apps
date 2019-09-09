@@ -43,7 +43,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Pet pets={this.state.pets} filterPets={this.filterPets}/>
+                <Pet pets={this.state.pets} 
+                    sex={this.state.sex} 
+                    filterPets={this.filterPets}/>
             </div>
         );
     }

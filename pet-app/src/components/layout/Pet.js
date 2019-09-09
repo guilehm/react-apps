@@ -23,7 +23,9 @@ class Pet extends Component {
         return (
             <React.Fragment>
                 <label>Sex:</label>
-                <select name="sex" onChange={this.props.filterPets}>
+                <select name="sex" 
+                        onChange={this.props.filterPets}
+                        value={this.props.sex ? this.props.sex : 'null'}>
                     <option value="male">Macho</option>
                     <option value="female">Fêmea</option>
                     <option value="not_identified">Não identificado</option>
