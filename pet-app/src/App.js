@@ -7,34 +7,52 @@ import './App.css';
 
 const queryString = require('query-string');
 
-const BASEURL = 'https://gui-pets.herokuapp.com/api';
+// const BASEURL = 'https://gui-pets.herokuapp.com/api';
+const BASEURL = process.env.BASEURL || 'http://localhost:8000/api';
 
 class App extends Component {
     state = {
         pets: [],
-        sex: null,
+        filters: {},
+        breeds: [],
     }
 
     componentDidMount() {
+        // get pets
         axios.get(`${BASEURL}/pets/`)
             .then(res => this.setState({
                 pets: res.data.results
             }))
             .catch((e => console.log(e)))
+
+        // handle breeds
+        let handleBreedSuccess = (res) => {
+            let breeds = ['Todas'];
+            for (let breed of res.data.results) {
+                breeds.push(breed.name);
+            }
+            this.setState({ breeds })
+        }
+
+        // get breeds
+        axios.get(`${BASEURL}/breeds/?limit=350`)
+            .then(handleBreedSuccess)
+            .catch((e => console.log(e)))
     }
 
     filterPets = (event) => {
-        let value = event.target.value
-        let obj = {};
-        if (value !== 'null') {
-            obj[event.target.name] = value
+        let value = event.target.value;
+        let filters = this.state.filters;
+        filters[event.target.name] = value;
+        let query = '';
+        if (value !== 'null' && value !== 'Todas') {
+            query = queryString.stringify(filters);
         }
-        let query = queryString.stringify(obj)
-        let url = `${BASEURL}/pets/?${query}`
+        let url = `${BASEURL}/pets/?${query}`;
         axios.get(url)
             .then(res => this.setState({
                 pets: res.data.results,
-                sex: obj ? obj.sex : null,
+                filters: filters,
             }))
             .catch((e => console.log(e)))
     }
@@ -43,9 +61,11 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Pet pets={this.state.pets} 
-                    sex={this.state.sex} 
-                    filterPets={this.filterPets}/>
+                <Pet pets={this.state.pets}
+                    sex={this.state.filters.sex}
+                    filterPets={this.filterPets}
+                    filters={this.state.filters}
+                    breeds={this.state.breeds} />
             </div>
         );
     }
