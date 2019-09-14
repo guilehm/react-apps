@@ -32,15 +32,12 @@ class Pet extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <label>Sex:</label>
-                <select name="sex" 
-                        onChange={this.props.filterPets}
-                        value={this.props.sex ? this.props.sex : 'null'}>
-                    <option value="male">Macho</option>
-                    <option value="female">Fêmea</option>
-                    <option value="not_identified">Não identificado</option>
-                    <option value="null">Todos</option>
-                </select>
+                <FilterSelect 
+                    name="sex"
+                    label="Sexo:"
+                    filterFunction={this.props.filterPets}
+                    activeValue={this.props.filters ? this.props.filters.sex : 'null'}
+                    options={this.sexOptions}/>
                 <div className="card-group">{this.getPetMarkup()}</div>
             </div>
         )
