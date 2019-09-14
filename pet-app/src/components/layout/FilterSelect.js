@@ -23,8 +23,10 @@ class FilterSelect extends Component {
     render() {
         return (
             <React.Fragment>
-                <label>{this.props.label}</label>
-                <select name={this.props.name}
+                <div className="input-group-prepend">
+                    <button className="btn btn-outline-secondary" type="button">{this.props.label}</button>
+                </div>
+                <select style={selectStyle} className="custom-select" name={this.props.name}
                     onChange={this.props.filterFunction}
                     value={this.props.activeValue}>
                     {this.getOptionsMarkup(this.props.options)}
@@ -32,6 +34,10 @@ class FilterSelect extends Component {
             </React.Fragment>
         )
     }
+}
+
+const selectStyle = {
+    maxWidth: '200px'
 }
 
 export default FilterSelect;
