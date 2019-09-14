@@ -40,6 +40,13 @@ class Pet extends Component {
                     filterFunction={this.props.filterPets}
                     activeValue={this.props.filters ? this.props.filters.sex : 'null'}
                     options={this.sexOptions}/>
+
+                <FilterSelect 
+                        name="breed"
+                        label="Raça:"
+                        filterFunction={this.props.filterPets}
+                        activeValue={this.props.filters ? this.props.filters.breeds : 'null'}
+                        options={this.props.breeds}/>
                 <div className="card-group">{this.getPetMarkup()}</div>
             </div>
         )
