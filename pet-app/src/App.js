@@ -12,7 +12,7 @@ const BASEURL = 'https://gui-pets.herokuapp.com/api';
 class App extends Component {
     state = {
         pets: [],
-        sex: null,
+        filters: {},
     }
 
     componentDidMount() {
@@ -25,26 +25,28 @@ class App extends Component {
 
     filterPets = (event) => {
         let value = event.target.value
-        let obj = {};
+        let filters = this.state.filters;
+        filters[event.target.name] = value
+        let query = '';
         if (value !== 'null') {
-            obj[event.target.name] = value
+            query = queryString.stringify(filters)
         }
-        let query = queryString.stringify(obj)
         let url = `${BASEURL}/pets/?${query}`
         axios.get(url)
             .then(res => this.setState({
                 pets: res.data.results,
-                sex: obj ? obj.sex : null,
+                filters: filters
             }))
             .catch((e => console.log(e)))
     }
 
     render() {
+        console.log(this.state.pets)
         return (
             <div className="App">
                 <Header />
                 <Pet pets={this.state.pets} 
-                    sex={this.state.sex} 
+                    sex={this.state.filters.sex} 
                     filterPets={this.filterPets}/>
             </div>
         );
