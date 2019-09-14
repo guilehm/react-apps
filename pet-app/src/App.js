@@ -7,7 +7,6 @@ import './App.css';
 
 const queryString = require('query-string');
 
-// const BASEURL = 'https://gui-pets.herokuapp.com/api';
 const BASEURL = process.env.BASEURL || 'http://localhost:8000/api';
 
 class App extends Component {
@@ -40,14 +39,21 @@ class App extends Component {
             .catch((e => console.log(e)))
     }
 
+    cleanFilters(filters) {
+        for (let key of Object.keys(filters)) {
+            if (filters[key] === 'null' || filters[key] === 'Todas') {
+                delete filters[key];
+            }
+        }
+        return filters;
+    }
+
     filterPets = (event) => {
         let value = event.target.value;
         let filters = this.state.filters;
         filters[event.target.name] = value;
-        let query = '';
-        if (value !== 'null' && value !== 'Todas') {
-            query = queryString.stringify(filters);
-        }
+        filters = this.cleanFilters(filters)
+        let query = queryString.stringify(filters);
         let url = `${BASEURL}/pets/?${query}`;
         axios.get(url)
             .then(res => this.setState({
