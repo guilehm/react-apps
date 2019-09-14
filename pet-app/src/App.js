@@ -35,7 +35,7 @@ class App extends Component {
         }
 
         // get breeds
-        axios.get(`${REACT_APP_BASEURL}/breeds/?limit=350`)
+        axios.get(`${REACT_APP_BASEURL}/breeds/?limit=350&active=true`)
             .then(handleBreedSuccess)
             .catch((e => console.log(e)))
     }
