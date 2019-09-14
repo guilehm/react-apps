@@ -31,7 +31,7 @@ class App extends Component {
             for (let breed of res.data.results) {
                 breeds.push(breed.name);
             }
-            this.setState({breeds})
+            this.setState({ breeds })
         }
 
         // get breeds
@@ -61,10 +61,10 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Pet pets={this.state.pets} 
-                    sex={this.state.filters.sex} 
+                <Pet pets={this.state.pets}
+                    sex={this.state.filters.sex}
                     filterPets={this.filterPets}
-                    breeds={this.state.breeds}/>
+                    breeds={this.state.breeds} />
             </div>
         );
     }
