@@ -27,6 +27,7 @@ class App extends Component {
         // handle breeds
         let handleBreedSuccess = (res) => {
             let breeds = ['Todas'];
+            // eslint-disable-next-line
             for (let breed of res.data.results) {
                 breeds.push(breed.name);
             }
@@ -40,6 +41,7 @@ class App extends Component {
     }
 
     cleanFilters(filters) {
+        // eslint-disable-next-line
         for (let key of Object.keys(filters)) {
             if (filters[key] === 'null' || filters[key] === 'Todas') {
                 delete filters[key];
