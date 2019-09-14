@@ -64,6 +64,7 @@ class App extends Component {
                 <Pet pets={this.state.pets}
                     sex={this.state.filters.sex}
                     filterPets={this.filterPets}
+                    filters={this.state.filters}
                     breeds={this.state.breeds} />
             </div>
         );
