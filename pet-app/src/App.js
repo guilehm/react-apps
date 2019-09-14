@@ -8,7 +8,7 @@ import './App.css';
 const queryString = require('query-string');
 
 // const BASEURL = 'https://gui-pets.herokuapp.com/api';
-const BASEURL = 'http://localhost:8000/api';
+const BASEURL = process.env.BASEURL || 'http://localhost:8000/api';
 
 class App extends Component {
     state = {
