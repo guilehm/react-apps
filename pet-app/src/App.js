@@ -7,7 +7,7 @@ import './App.css';
 
 const queryString = require('query-string');
 
-const BASEURL = process.env.BASEURL || 'http://localhost:8000/api';
+const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:8000/api';
 
 class App extends Component {
     state = {
@@ -18,7 +18,7 @@ class App extends Component {
 
     componentDidMount() {
         // get pets
-        axios.get(`${BASEURL}/pets/`)
+        axios.get(`${REACT_APP_BASEURL}/pets/`)
             .then(res => this.setState({
                 pets: res.data.results
             }))
@@ -35,7 +35,7 @@ class App extends Component {
         }
 
         // get breeds
-        axios.get(`${BASEURL}/breeds/?limit=350`)
+        axios.get(`${REACT_APP_BASEURL}/breeds/?limit=350`)
             .then(handleBreedSuccess)
             .catch((e => console.log(e)))
     }
@@ -56,7 +56,7 @@ class App extends Component {
         filters[event.target.name] = value;
         filters = this.cleanFilters(filters)
         let query = queryString.stringify(filters);
-        let url = `${BASEURL}/pets/?${query}`;
+        let url = `${REACT_APP_BASEURL}/pets/?${query}`;
         axios.get(url)
             .then(res => this.setState({
                 pets: res.data.results,
