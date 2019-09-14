@@ -11,8 +11,8 @@ class FilterSelect extends Component {
                 optionsMarkup.push(<option key={o} value={o}>{o}</option>)
             }
         } else {
-            for (let o of Object.entries(options)) {
-                optionsMarkup.push(<option key={o[0]} value={o[0]}>{o[1]}</option>)
+            for (let key of Object.keys(options)) {
+                optionsMarkup.push(<option key={key} value={key}>{options[key]}</option>)
             }
         }
         return optionsMarkup;
