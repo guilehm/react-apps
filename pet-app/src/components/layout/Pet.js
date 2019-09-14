@@ -8,10 +8,10 @@ const BASEURL = process.env.BASEURL || 'http://localhost:8000/api';
 class Pet extends Component {
 
     sexOptions = {
+        null: 'Todos',  
         male: 'Macho',
         female: 'Fêmea',
         not_identified: 'Não identificado',
-        null: 'Todos',
     }
 
     getPetMarkup() {
@@ -38,7 +38,7 @@ class Pet extends Component {
                     name="sex"
                     label="Sexo:"
                     filterFunction={this.props.filterPets}
-                    value={this.props.filters ? this.props.filters.sex : 'null'}
+                    activeValue={this.props.filters ? this.props.filters.sex : 'null'}
                     options={this.sexOptions}/>
                 <div className="card-group">{this.getPetMarkup()}</div>
             </div>
