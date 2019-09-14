@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import FilterSelect from './FilterSelect';
 
 
 
 class Pet extends Component {
+
+    sexOptions = {
+        male: 'Macho',
+        female: 'Fêmea',
+        not_identified: 'Não identificado',
+        null: 'Todos',
+    }
 
     getPetMarkup() {
         let url = 'https://gui-pets.herokuapp.com/api/pets/';
