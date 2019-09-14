@@ -38,7 +38,7 @@ class Pet extends Component {
                     name="sex"
                     label="Sexo:"
                     filterFunction={this.props.filterPets}
-                    activeValue={this.props.filters ? this.props.filters.sex : 'null'}
+                    activeValue={this.props.filters.sex || 'null'}
                     options={this.sexOptions} />
 
                 <FilterSelect
