@@ -34,19 +34,23 @@ class Pet extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <FilterSelect
-                    name="sex"
-                    label="Sexo:"
-                    filterFunction={this.props.filterPets}
-                    activeValue={this.props.filters.sex || 'null'}
-                    options={this.sexOptions} />
 
-                <FilterSelect
-                    name="breed"
-                    label="Raça:"
-                    filterFunction={this.props.filterPets}
-                    activeValue={this.props.filters ? this.props.filters.breeds : 'null'}
-                    options={this.props.breeds} />
+                <div className="input-group mb-3">
+                    <FilterSelect
+                        name="sex"
+                        label="Sexo:"
+                        filterFunction={this.props.filterPets}
+                        activeValue={this.props.filters.sex || 'null'}
+                        options={this.sexOptions} />
+                </div>
+                <div className="input-group mb-3">
+                    <FilterSelect
+                        name="breed"
+                        label="Raça:"
+                        filterFunction={this.props.filterPets}
+                        activeValue={this.props.filters ? this.props.filters.breeds : 'null'}
+                        options={this.props.breeds} />
+                </div>
                 <div className="card-group">{this.getPetMarkup()}</div>
             </div>
         )
