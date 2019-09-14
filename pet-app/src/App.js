@@ -27,7 +27,7 @@ class App extends Component {
 
         // handle breeds
         let handleBreedSuccess = (res) => {
-            let breeds = [];
+            let breeds = ['Todas'];
             for (let breed of res.data.results) {
                 breeds.push(breed.name);
             }
@@ -45,7 +45,7 @@ class App extends Component {
         let filters = this.state.filters;
         filters[event.target.name] = value;
         let query = '';
-        if (value !== 'null') {
+        if (value !== 'null' && value !== 'Todas') {
             query = queryString.stringify(filters);
         }
         let url = `${BASEURL}/pets/?${query}`;
