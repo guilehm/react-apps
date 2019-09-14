@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import FilterSelect from './FilterSelect';
 
 
+const BASEURL = process.env.BASEURL || 'http://localhost:8000/api';
+
 
 class Pet extends Component {
 
@@ -13,7 +15,7 @@ class Pet extends Component {
     }
 
     getPetMarkup() {
-        let url = 'https://gui-pets.herokuapp.com/api/pets/';
+        let url = `${BASEURL}/pets`;
         return this.props.pets.map((pet) => (
             <div key={pet.id} className="card" style={cardStyle}>
                 <img className="card-img-top" 
