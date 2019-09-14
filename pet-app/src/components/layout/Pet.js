@@ -38,7 +38,7 @@ class Pet extends Component {
                     name="sex"
                     label="Sexo:"
                     filterFunction={this.props.filterPets}
-                    activeValue={this.props.filters ? this.props.filters.sex : 'null'}
+                    value={this.props.filters ? this.props.filters.sex : 'null'}
                     options={this.sexOptions}/>
                 <div className="card-group">{this.getPetMarkup()}</div>
             </div>

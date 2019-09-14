@@ -17,7 +17,7 @@ class FilterSelect extends Component {
                 <label>{this.props.label}</label>
                 <select name={this.props.name} 
                         onChange={this.props.filterFunction}
-                        activeValue={this.props.activeValue}>
+                        value={this.props.activeValue}>
                     {this.getOptionsMarkup(this.props.options)}
                 </select>
             </React.Fragment>
