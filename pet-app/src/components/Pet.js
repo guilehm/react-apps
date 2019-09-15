@@ -24,7 +24,7 @@ class Pet extends Component {
                 <div className="card-body">
                     <h5 className="card-title">{pet.name}</h5>
                     <p className="card-text">{pet.description}</p>
-                    <a href={url + pet.id} className="btn btn-success">detalhes</a>
+                    <a href={"/pets/" + pet.id} className="btn btn-success">detalhes</a>
                     <a href={url + pet.id} className="btn btn-primary ml-1">api</a>
                 </div>
             </div>
