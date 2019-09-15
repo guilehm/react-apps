@@ -31,10 +31,11 @@ class PetDetail extends Component {
         )
     }
 
-    getPictureMarkup() {
-        if (!this.state.pictures) return ''
-        return this.state.pictures.map((picture) => (
+    getPictureMarkup(pictures) {
+        if (!pictures) return ''
+        return pictures.map((picture) => (
             <img
+                key={picture.id}
                 src={picture.url}
                 alt={picture.alt ? picture.alt : this.state.name}
                 style={mainPictureStyle}
@@ -52,7 +53,7 @@ class PetDetail extends Component {
                     style={mainPictureStyle}
                     className="img-thumbnail">
                 </img>
-                {this.getPictureMarkup()}
+                {this.getPictureMarkup(this.state.pictures || [])}
             </div>
         )
     }
