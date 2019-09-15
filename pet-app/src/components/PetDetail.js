@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:8000';
+const PLACEHOLDER_URL = `${REACT_APP_BASEURL}/static/web/img/placeholder.png`;
 
 
 class PetDetail extends Component {

@@ -3,6 +3,7 @@ import FilterSelect from './layout/FilterSelect';
 
 
 const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:8000';
+const PLACEHOLDER_URL = `${REACT_APP_BASEURL}/static/web/img/placeholder.png`;
 
 
 class Pet extends Component {
@@ -19,7 +20,7 @@ class Pet extends Component {
         return this.props.pets.map((pet) => (
             <div key={pet.id} className="card" style={cardStyle}>
                 <img className="card-img-top"
-                    src={pet.mainPicture ? pet.mainPicture.url : `${REACT_APP_BASEURL}/static/web/img/placeholder.png`}
+                    src={pet.mainPicture ? pet.mainPicture.url : PLACEHOLDER_URL}
                     alt={pet.name} />
                 <div className="card-body">
                     <h5 className="card-title">{pet.name}</h5>
