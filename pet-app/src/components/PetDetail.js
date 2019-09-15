@@ -20,6 +20,18 @@ class PetDetail extends Component {
             .catch((e => console.log(e)))
     }
 
+    getPetDetailHeaderMarkup() {
+        return (
+            <div className="jumbotron">
+                <h1 className="display-4">{this.state.name}</h1>
+                <p className="lead">{this.state.breed}</p>
+                <hr className="my-4" />
+                <p>{this.state.description}</p>
+                <a className="btn btn-success btn-md" href="/" role="button">encontrei</a>
+            </div>
+        )
+    }
+
     render() {
         console.log(this.state)
         return (
