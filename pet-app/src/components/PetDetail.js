@@ -13,7 +13,6 @@ class PetDetail extends Component {
         }
     }
 
-
     componentDidMount() {
         axios.get(`${REACT_APP_BASEURL}/api/pets/${this.state.petId}/`)
             .then(res => this.setState(res.data))
@@ -33,7 +32,6 @@ class PetDetail extends Component {
     }
 
     getPictureMarkup() {
-        console.log(this.state)
         if (!this.state.pictures) return ''
         return this.state.pictures.map((picture) => (
             <img
