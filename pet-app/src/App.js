@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Pet from './components/Pet';
+import PetDetail from './components/PetDetail';
 import axios from 'axios';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -71,11 +72,14 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <Navbar />
-                    <Pet pets={this.state.pets}
-                        sex={this.state.filters.sex}
-                        filterPets={this.filterPets}
-                        filters={this.state.filters}
-                        breeds={this.state.breeds} />
+                    <Route exact path="/" render={() => (
+                        <Pet pets={this.state.pets}
+                            sex={this.state.filters.sex}
+                            filterPets={this.filterPets}
+                            filters={this.state.filters}
+                            breeds={this.state.breeds} />
+                    )} />
+                    <Route path="/pets/:id" component={PetDetail} />
                 </div>
             </Router>
         );
