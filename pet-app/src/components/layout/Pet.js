@@ -15,11 +15,11 @@ class Pet extends Component {
     }
 
     getPetMarkup() {
-        let url = `${REACT_APP_BASEURL}/pets/`;
+        let url = `${REACT_APP_BASEURL}/api/pets/`;
         return this.props.pets.map((pet) => (
             <div key={pet.id} className="card" style={cardStyle}>
                 <img className="card-img-top"
-                    src={pet.mainPicture ? pet.mainPicture.url : ''}
+                    src={pet.mainPicture ? pet.mainPicture.url : `${REACT_APP_BASEURL}/static/web/img/placeholder.png`}
                     alt={pet.name} />
                 <div className="card-body">
                     <h5 className="card-title">{pet.name}</h5>
