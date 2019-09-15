@@ -12,10 +12,9 @@ class FilterSelect extends Component {
                 optionsMarkup.push(<option key={o} value={o}>{o}</option>)
             }
         } else {
-            // eslint-disable-next-line
-            for (let key of Object.keys(options)) {
-                optionsMarkup.push(<option key={key} value={key}>{options[key]}</option>)
-            }
+            Object.keys(options).map((key) => {
+                return optionsMarkup.push(<option key={key} value={key}>{options[key]}</option>)
+            })
         }
         return optionsMarkup;
     }
