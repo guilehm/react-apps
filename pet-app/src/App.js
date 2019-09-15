@@ -43,11 +43,11 @@ class App extends Component {
 
     cleanFilters(filters) {
         // eslint-disable-next-line
-        for (let key of Object.keys(filters)) {
+        Object.keys(filters).map((key) => {
             if (filters[key] === 'null' || filters[key] === 'Todas') {
                 delete filters[key];
             }
-        }
+        })
         return filters;
     }
 
