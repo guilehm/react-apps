@@ -7,10 +7,9 @@ class FilterSelect extends Component {
 
         let optionsMarkup = [];
         if (Array.isArray(options)) {
-            // eslint-disable-next-line
-            for (let o of options) {
-                optionsMarkup.push(<option key={o} value={o}>{o}</option>)
-            }
+            options.map((option) => {
+                return optionsMarkup.push(<option key={option} value={option}>{option}</option>)
+            })
         } else {
             Object.keys(options).map((key) => {
                 return optionsMarkup.push(<option key={key} value={key}>{options[key]}</option>)
