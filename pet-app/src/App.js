@@ -52,7 +52,7 @@ class App extends Component {
 
     filterPets = (event) => {
         let value = event.target.value;
-        let filters = this.state.filters;
+        let { filters } = this.state;
         filters[event.target.name] = value;
         filters = this.cleanFilters(filters)
         let query = queryString.stringify(filters);
