@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/layout/Header';
 import Pet from './components/layout/Pet';
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -67,14 +68,16 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <Header />
-                <Pet pets={this.state.pets}
-                    sex={this.state.filters.sex}
-                    filterPets={this.filterPets}
-                    filters={this.state.filters}
-                    breeds={this.state.breeds} />
-            </div>
+            <Router>
+                <div className="App">
+                    <Header />
+                    <Pet pets={this.state.pets}
+                        sex={this.state.filters.sex}
+                        filterPets={this.filterPets}
+                        filters={this.state.filters}
+                        breeds={this.state.breeds} />
+                </div>
+            </Router>
         );
     }
 }
