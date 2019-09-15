@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/layout/Header';
-import Pet from './components/layout/Pet';
+import Pet from './components/Pet';
 import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom';
 

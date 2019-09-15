@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FilterSelect from './FilterSelect';
+import FilterSelect from './layout/FilterSelect';
 
 
 const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:8000';
@@ -34,7 +34,6 @@ class Pet extends Component {
     render() {
         return (
             <div className="container-fluid">
-
                 <div className="input-group mb-3">
                     <FilterSelect
                         name="sex"
