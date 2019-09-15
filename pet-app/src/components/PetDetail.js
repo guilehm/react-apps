@@ -32,15 +32,33 @@ class PetDetail extends Component {
         )
     }
 
+    getPetDetailBodyMarkup() {
+        return (
+            <div className="">
+                <img
+                    src={this.state.mainPicture ? this.state.mainPicture.url : PLACEHOLDER_URL}
+                    alt={this.state.name}
+                    style={mainPictureStyle}
+                    className="img-thumbnail">
+                </img>
+
+            </div>
+        )
+    }
+
     render() {
-        console.log(this.state)
         return (
             <div className="container-fluid">
-                <h1>{this.state.name}</h1>
-                <p>{this.state.data}</p>
+                {this.getPetDetailHeaderMarkup()}
+                {this.getPetDetailBodyMarkup()}
             </div>
         )
     }
 }
+
+const mainPictureStyle = {
+    maxWidth: '14rem',
+}
+
 
 export default PetDetail;
