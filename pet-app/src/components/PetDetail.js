@@ -32,6 +32,19 @@ class PetDetail extends Component {
         )
     }
 
+    getPictureMarkup() {
+        console.log(this.state)
+        if (!this.state.pictures) return ''
+        return this.state.pictures.map((picture) => (
+            <img
+                src={picture.url}
+                alt={picture.alt ? picture.alt : this.state.name}
+                style={mainPictureStyle}
+                className="img-thumbnail">
+            </img>
+        ))
+    }
+
     getPetDetailBodyMarkup() {
         return (
             <div className="">
@@ -41,7 +54,7 @@ class PetDetail extends Component {
                     style={mainPictureStyle}
                     className="img-thumbnail">
                 </img>
-
+                {this.getPictureMarkup()}
             </div>
         )
     }
