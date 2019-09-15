@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FilterSelect from './FilterSelect';
 
 
-const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:8000/api';
+const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:8000';
 
 
 class Pet extends Component {
