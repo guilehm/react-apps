@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="/">Pet</a>
@@ -24,4 +24,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default Navbar;

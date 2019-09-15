@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './components/layout/Header';
+import Navbar from './components/layout/Navbar';
 import Pet from './components/Pet';
 import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -70,7 +70,7 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Header />
+                    <Navbar />
                     <Pet pets={this.state.pets}
                         sex={this.state.filters.sex}
                         filterPets={this.filterPets}
