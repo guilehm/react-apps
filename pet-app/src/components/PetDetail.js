@@ -32,7 +32,6 @@ class PetDetail extends Component {
     }
 
     getPictureMarkup(pictures) {
-        if (!pictures) return ''
         return pictures.map((picture) => (
             <img
                 key={picture.id}
