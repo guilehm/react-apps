@@ -9,6 +9,13 @@ class Player extends Component {
         stats: [],
     }
 
+    fetchPlayer() {
+        let url = `${REACT_APP_BASEURL}/players/${this.state.playerId}/stats/`;
+        axios.get(url)
+            .then(res => this.setState(res.data))
+            .catch(err => console.log(err))
+    }
+
     render() {
         return (
             <div>Hello from Player</div>
