@@ -28,7 +28,11 @@ class Player extends Component {
 
     render() {
         return (
-            <div>Hello from Player</div>
+            <React.Fragment>
+                <ul>
+                    { this.state.stats.map(data => this.getDataMarkup(data)) }
+                </ul>
+            </React.Fragment>
         )
     }
 }
