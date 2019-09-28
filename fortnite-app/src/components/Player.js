@@ -29,8 +29,7 @@ class Player extends Component {
                 {stats.map(data =>
                     <li key={data.metadata.key}>
                         {data.metadata.name}: {data.value}
-                    </li>
-                )}
+                    </li>)}
             </ul>
         )
     }
