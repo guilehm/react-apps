@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import axios from 'axios'
 
-const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:4000';
+const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:4000'
 
 class Player extends Component {
     state = {
@@ -13,7 +13,7 @@ class Player extends Component {
 
     fetchPlayer() {
         if (!this.state.playerId) return
-        let url = `${REACT_APP_BASEURL}/players/${this.state.playerId}/stats/`;
+        let url = `${REACT_APP_BASEURL}/players/${this.state.playerId}/stats/`
         axios.get(url)
             .then(res => this.setState(res.data))
             .catch(err => console.log(err))
@@ -48,4 +48,4 @@ class Player extends Component {
     }
 }
 
-export default Player;
+export default Player

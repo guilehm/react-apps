@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Player from './components/Player';
-import axios from 'axios';
+import React, { Component } from 'react'
+import Player from './components/Player'
+import axios from 'axios'
 
-import './App.css';
+import './App.css'
 
-const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:4000';
+const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:4000'
 
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     fetchFriends() {
-        let url = `${REACT_APP_BASEURL}/friends/`;
+        let url = `${REACT_APP_BASEURL}/friends/`
         axios.get(url)
             .then(res => this.setState({ friends: res.data }))
             .catch(err => console.log(err))
@@ -39,4 +39,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default App
