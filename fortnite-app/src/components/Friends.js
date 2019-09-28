@@ -23,15 +23,17 @@ class Friends extends Component {
         this.fetchFriends()
     }
 
+    getFriendComponent(friends) {
+        return friends.map(friend => <Player
+            key={friend.playerId}
+            playerId={friend.playerId}
+            username={friend.handle} />)
+    }
+
     render() {
         return (
             <div>
-                {this.state.friends
-                    .map(friend => <Player
-                        key={friend.playerId}
-                        playerId={friend.playerId}
-                        username={friend.handle} />
-                    )}
+                {this.getFriendComponent(this.state.friends)}
             </div>
         )
     }
