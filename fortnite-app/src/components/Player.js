@@ -26,6 +26,15 @@ class Player extends Component {
         )
     }
 
+    getFilteredStats() {
+        let stats = this.state.stats
+        let filter = this.state.filter
+        if (filter) {
+            stats = stats.filter(data => data.metadata.key === filter)
+        }
+        return stats
+    }
+
     render() {
         return (
             <React.Fragment>
