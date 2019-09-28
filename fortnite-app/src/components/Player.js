@@ -23,9 +23,15 @@ class Player extends Component {
         this.fetchPlayer()
     }
 
-    getDataMarkup(data) {
+    getDataMarkup(stats) {
         return (
-            <li key={data.metadata.key}>{data.metadata.name}: {data.value}</li>
+            <ul>
+                {stats.map(data =>
+                    <li key={data.metadata.key}>
+                        {data.metadata.name}: {data.value}
+                    </li>
+                )}
+            </ul>
         )
     }
 
@@ -40,9 +46,7 @@ class Player extends Component {
         return (
             <React.Fragment>
                 <h1>{this.props.username}</h1>
-                <ul>
-                    {stats.map(data => this.getDataMarkup(data))}
-                </ul>
+                {this.getDataMarkup(stats)}
             </React.Fragment>
         )
     }
