@@ -5,11 +5,14 @@ const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:400
 
 class Player extends Component {
     state = {
-        playerId: 'AQUACAGNjhTuxlU8SrIBP8eO+O0A',
+        playerId: this.props.playerId || '',
+        username: this.props.username || '',
         stats: [],
+        filter: '',
     }
 
     fetchPlayer() {
+        if (!this.state.playerId) return
         let url = `${REACT_APP_BASEURL}/players/${this.state.playerId}/stats/`;
         axios.get(url)
             .then(res => this.setState(res.data))
