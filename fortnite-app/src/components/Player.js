@@ -30,19 +30,18 @@ class Player extends Component {
     }
 
     getFilteredStats() {
-        let stats = this.state.stats
         let filter = this.state.filter
-        if (filter) {
-            stats = stats.filter(data => data.metadata.key === filter)
-        }
-        return stats
+        if (!filter) return this.state.stats
+        return this.state.stats.filter(data => data.metadata.key === filter)
     }
 
     render() {
+        let stats = this.getFilteredStats()
         return (
             <React.Fragment>
+                <h1>{this.props.username}</h1>
                 <ul>
-                    { this.state.stats.map(data => this.getDataMarkup(data)) }
+                    {stats.map(data => this.getDataMarkup(data))}
                 </ul>
             </React.Fragment>
         )
