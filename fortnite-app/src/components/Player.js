@@ -16,6 +16,16 @@ class Player extends Component {
             .catch(err => console.log(err))
     }
 
+    componentDidMount() {
+        this.fetchPlayer()
+    }
+
+    getDataMarkup(data) {
+        return (
+            <li key={data.metadata.key}>{data.metadata.name}: {data.value}</li>
+        )
+    }
+
     render() {
         return (
             <div>Hello from Player</div>
