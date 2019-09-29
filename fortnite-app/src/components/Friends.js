@@ -13,6 +13,11 @@ class Friends extends Component {
         metadatas: [],
         filter: '',
     }
+    constructor(props) {
+        super(props)
+
+        this.updateFilter = this.updateFilter.bind(this)
+    }
 
     fetchMetadatas() {
         let url = `${REACT_APP_BASEURL}/metadatas/`
@@ -42,12 +47,18 @@ class Friends extends Component {
                 filter={this.state.filter} />)
     }
 
+    updateFilter(event) {
+        let value = event.target.value || 'kills'
+        return this.setState({filter: value})
+    }
+
     render() {
         return (
             <div>
                 <Filter
                     options={this.state.metadatas}
-                    activeValue={this.state.filter} />
+                    activeValue={this.state.filter}
+                    updateFilter={this.updateFilter} />
                 {this.getFriendComponent(this.state.friends)}
             </div>
         )
