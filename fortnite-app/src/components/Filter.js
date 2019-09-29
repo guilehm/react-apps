@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class FilterSelect extends Component {
 
     getOptionsMarkup(options) {
-        options
+        return options
             .map((option, index) =>
                 <option
                     key={index}
