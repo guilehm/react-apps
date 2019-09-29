@@ -11,6 +11,7 @@ class Friends extends Component {
     state = {
         friends: [],
         metadatas: [],
+        filter: '',
     }
 
     fetchMetadatas() {
@@ -33,16 +34,20 @@ class Friends extends Component {
     }
 
     getFriendComponent(friends) {
-        return friends.map(friend => <Player
-            key={friend.playerId}
-            playerId={friend.playerId}
-            username={friend.handle} />)
+        return friends.map(friend =>
+            <Player
+                key={friend.playerId}
+                playerId={friend.playerId}
+                username={friend.handle}
+                filter={this.state.filter} />)
     }
 
     render() {
         return (
             <div>
-                <Filter options={this.state.metadatas} />
+                <Filter
+                    options={this.state.metadatas}
+                    activeValue={this.state.filter} />
                 {this.getFriendComponent(this.state.friends)}
             </div>
         )
