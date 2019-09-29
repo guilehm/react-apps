@@ -35,7 +35,7 @@ class Player extends Component {
     }
 
     getFilteredStats() {
-        let filter = this.state.filter
+        let filter = this.props.filter
         if (!filter) return this.state.stats
         return this.state.stats.filter(data => data.metadata.key === filter)
     }
