@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Player from './Player'
 import axios from 'axios'
-
+import Filter from './Filter'
 
 const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:4000'
 
@@ -9,7 +9,15 @@ const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:400
 class Friends extends Component {
 
     state = {
-        friends: []
+        friends: [],
+        metadatas: [],
+    }
+
+    fetchMetadatas() {
+        let url = `${REACT_APP_BASEURL}/metadatas/`
+        axios.get(url)
+            .then(res => this.setState({ metadatas: res.data }))
+            .catch(err => console.log(err))
     }
 
     fetchFriends() {
@@ -21,6 +29,7 @@ class Friends extends Component {
 
     componentDidMount() {
         this.fetchFriends()
+        this.fetchMetadatas()
     }
 
     getFriendComponent(friends) {
@@ -33,6 +42,7 @@ class Friends extends Component {
     render() {
         return (
             <div>
+                <Filter options={this.state.metadatas} />
                 {this.getFriendComponent(this.state.friends)}
             </div>
         )
