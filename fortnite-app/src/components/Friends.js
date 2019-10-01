@@ -17,6 +17,7 @@ class Friends extends Component {
         super(props)
 
         this.updateFilter = this.updateFilter.bind(this)
+        this.clearFilter = this.clearFilter.bind(this)
     }
 
     fetchMetadatas() {
