@@ -63,7 +63,8 @@ class Friends extends Component {
                 <Filter
                     options={this.state.metadatas}
                     activeValue={this.state.filter}
-                    updateFilter={this.updateFilter} />
+                    updateFilter={this.updateFilter}
+                    clearFilter={this.clearFilter} />
                 {this.getFriendComponent(this.state.friends)}
             </div>
         )
