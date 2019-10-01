@@ -52,6 +52,10 @@ class Friends extends Component {
         return this.setState({filter: value})
     }
 
+    clearFilter() {
+        return this.setState({ filter: '' })
+    }
+
     render() {
         return (
             <div>
