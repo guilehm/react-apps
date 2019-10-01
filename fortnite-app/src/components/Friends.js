@@ -50,7 +50,7 @@ class Friends extends Component {
 
     updateFilter(event) {
         let value = event.target.value || 'kills'
-        return this.setState({filter: value})
+        return this.setState({ filter: value })
     }
 
     clearFilter() {
