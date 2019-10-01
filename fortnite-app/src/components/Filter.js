@@ -16,12 +16,19 @@ class FilterSelect extends Component {
 
     render() {
         return (
-            <select
-                onChange={this.props.updateFilter}
-                name={this.props.name}
-                value={this.props.activeValue}>
-                {this.getOptionsMarkup(this.props.options)}
-            </select>
+            <React.Fragment>
+                <select
+                    onChange={this.props.updateFilter}
+                    name={this.props.name}
+                    value={this.props.activeValue}>
+                    {this.getOptionsMarkup(this.props.options)}
+                </select>
+                <button
+                    name="clear"
+                    onClick={this.props.clearFilter}>
+                    Limpar
+                </button>
+            </React.Fragment>
         )
     }
 }
