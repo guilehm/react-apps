@@ -9,6 +9,7 @@ class Player extends Component {
         username: this.props.username || '',
         stats: [],
         filter: '',
+        segments: [],
     }
 
     fetchPlayer() {
