@@ -27,6 +27,9 @@ class Character extends Component {
             <React.Fragment>
                 <h1>{this.state.name}</h1>
                 <p>{this.state.description}</p>
+                <img
+                    src={thumbUrl}
+                    alt={this.state.name} />
             </React.Fragment>
         )
     }
