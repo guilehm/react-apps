@@ -14,6 +14,7 @@ class Marvel {
         this.privateKey=privateKey
         this.publicKey=publicKey
         this.apiVersion=apiVersion
+        this.baseUrl=`http://gateway.marvel.com/${this.apiVersion}/public/`
     }
 
     getAuthData() {
