@@ -13,16 +13,19 @@ class Character extends Component {
     }
 
     fetchCharacter() {
-        let url = `${marvel.baseUrl}/characters/${this.state.characterId}/`
+        let url = `${marvel.baseUrl}/characters/${this.state.characterId}`
         url = `${url}?${marvel.getAuthParams()}`
         axios.get(url)
-            .then(res => this.setState(res.data.results[0]))
+            .then(res => this.setState(res.data.data.results[0]))
             .catch(err => console.log(err))
     }
 
     render() {
         return (
-            <span>hello from character</span>
+            <React.Fragment>
+                <h1>{this.state.name}</h1>
+                <p>{this.state.description}</p>
+            </React.Fragment>
         )
     }
 }
