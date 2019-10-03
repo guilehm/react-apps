@@ -6,6 +6,7 @@ class Character extends Component {
 
     state = {
         characterId: this.props.characterId || '1009351',
+        comics: [],
     }
 
     componentDidMount() {
@@ -40,6 +41,7 @@ class Character extends Component {
                 <h1>{this.state.name}</h1>
                 <p>{this.state.description}</p>
                 <img src={thumbUrl} alt={this.state.name} />
+                {this.getComicMarkup(this.state.comics)}
             </React.Fragment>
         )
     }
