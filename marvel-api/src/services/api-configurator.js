@@ -14,7 +14,7 @@ class Marvel {
         this.privateKey=privateKey
         this.publicKey=publicKey
         this.apiVersion=apiVersion
-        this.baseUrl=`http://gateway.marvel.com/${this.apiVersion}/public/`
+        this.baseUrl=`http://gateway.marvel.com/${this.apiVersion}/public`
     }
 
     getAuthData() {
@@ -24,8 +24,13 @@ class Marvel {
         return {
             ts: timestamp,
             apikey: this.publicKey,
-            hash: hash
+            hash: hash,
         }
+    }
+
+    getAuthParams() {
+        let authData = this.getAuthData()
+        return `ts=${authData.ts}&apikey=${authData.apikey}&hash=${authData.hash}`
     }
 
 }
