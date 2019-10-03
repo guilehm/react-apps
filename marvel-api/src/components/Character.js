@@ -21,6 +21,8 @@ class Character extends Component {
     }
 
     render() {
+        let thumb = this.state.thumbnail
+        let thumbUrl = thumb ? `${thumb.path}.${thumb.extension}` : ''
         return (
             <React.Fragment>
                 <h1>{this.state.name}</h1>
