@@ -20,6 +20,18 @@ class Character extends Component {
             .catch(err => console.log(err))
     }
 
+    getComicMarkup(comicss) {
+        let comics = comicss.items || []
+        return (
+            <ul>
+                {comics.map((comic, index) =>
+                    <li key={index}>
+                        <a href={`${comic.resourceURI}?${marvel.getAuthParams()}`}>{comic.name}</a>
+                    </li>)}
+            </ul>
+        )
+    }
+
     render() {
         let thumb = this.state.thumbnail
         let thumbUrl = thumb ? `${thumb.path}.${thumb.extension}` : ''
