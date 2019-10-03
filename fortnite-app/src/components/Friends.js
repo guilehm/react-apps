@@ -13,6 +13,7 @@ class Friends extends Component {
         metadatas: [],
         filter: '',
     }
+
     constructor(props) {
         super(props)
 

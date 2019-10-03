@@ -4,6 +4,7 @@ import axios from 'axios'
 const REACT_APP_BASEURL = process.env.REACT_APP_BASEURL || 'http://localhost:4000'
 
 class Player extends Component {
+
     state = {
         playerId: this.props.playerId || '',
         username: this.props.username || '',
