@@ -41,6 +41,7 @@ class Character extends Component {
                 <h1>{this.state.name}</h1>
                 <p>{this.state.description}</p>
                 <img src={thumbUrl} alt={this.state.name} />
+                <p>{this.state.modified}</p>
                 {this.getComicMarkup(this.state.comics)}
             </React.Fragment>
         )
