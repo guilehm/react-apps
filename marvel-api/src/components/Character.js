@@ -24,12 +24,15 @@ class Character extends Component {
     getComicMarkup(comics) {
         let comicItems = comics.items || []
         return (
-            <ul>
-                {comicItems.map((comic, index) =>
-                    <li key={index}>
-                        <a href={`${comic.resourceURI}?${marvel.getAuthParams()}`}>{comic.name}</a>
-                    </li>)}
-            </ul>
+            <div>
+                <p>Comics:</p>
+                <ul>
+                    {comicItems.map((comic, index) =>
+                        <li key={index}>
+                            <a href={`${comic.resourceURI}?${marvel.getAuthParams()}`}>{comic.name}</a>
+                        </li>)}
+                </ul>
+            </div>
         )
     }
 
