@@ -22,10 +22,10 @@ class Character extends Component {
     }
 
     getComicMarkup(comics) {
-        let comics = comics.items || []
+        let comicItems = comics.items || []
         return (
             <ul>
-                {comics.map((comic, index) =>
+                {comicItems.map((comic, index) =>
                     <li key={index}>
                         <a href={`${comic.resourceURI}?${marvel.getAuthParams()}`}>{comic.name}</a>
                     </li>)}
