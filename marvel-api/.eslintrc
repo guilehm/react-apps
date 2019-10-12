@@ -1,0 +1,20 @@
+{
+    "extends": "react-app",
+    "rules": {
+        // "no-console": "warn"
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "complexity": ["error", 4],
+        "camelcase": ["error", {
+            "properties": "always"
+        }]
+    },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    }
+}
