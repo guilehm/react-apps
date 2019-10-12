@@ -21,8 +21,8 @@ class Character extends Component {
             .catch(err => console.log(err))
     }
 
-    getComicMarkup(comicss) {
-        let comics = comicss.items || []
+    getComicMarkup(comics) {
+        let comics = comics.items || []
         return (
             <ul>
                 {comics.map((comic, index) =>
