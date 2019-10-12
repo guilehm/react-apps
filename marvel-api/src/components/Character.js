@@ -11,6 +11,7 @@ class Character extends Component {
         events: [],
         series: [],
         stories: [],
+        urls: [],
     }
 
     componentDidMount() {
@@ -40,6 +41,20 @@ class Character extends Component {
         )
     }
 
+    getUrlMarkup(urls) {
+        return (
+            <div>
+                <p>Links:</p>
+                <ul>
+                    {urls.map((url, index) =>
+                        <li key={index}>
+                            <a href={url.url}>{url.type}</a>
+                        </li>)}
+                </ul>
+            </div>
+        )
+    }
+
     render() {
         let thumb = this.state.thumbnail
         let thumbUrl = thumb ? `${thumb.path}.${thumb.extension}` : ''
@@ -49,6 +64,7 @@ class Character extends Component {
                 <p>{this.state.description}</p>
                 <img src={thumbUrl} alt={this.state.name} />
                 <p>{this.state.modified}</p>
+                {this.getUrlMarkup(this.state.urls)}
                 {this.getResourceMarkup(this.state.comics, 'Comics')}
                 {this.getResourceMarkup(this.state.events, 'Events')}
                 {this.getResourceMarkup(this.state.series, 'Series')}
