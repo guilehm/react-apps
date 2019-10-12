@@ -7,6 +7,7 @@ class Character extends Component {
     state = {
         characterId: this.props.characterId || '1009351',
         comics: [],
+        error: false,
     }
 
     componentDidMount() {
@@ -18,7 +19,7 @@ class Character extends Component {
         url = `${url}?${marvel.getAuthParams()}`
         axios.get(url)
             .then(res => this.setState(res.data.data.results[0]))
-            .catch(err => console.log(err))
+            .catch(err => this.setState({ error: true }))
     }
 
     getComicMarkup(comics) {
