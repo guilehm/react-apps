@@ -5,9 +5,12 @@ import marvel from '../services/api-configurator'
 class Character extends Component {
 
     state = {
+        error: false,
         characterId: this.props.characterId || '1009351',
         comics: [],
-        error: false,
+        events: [],
+        series: [],
+        stories: [],
     }
 
     componentDidMount() {
@@ -22,15 +25,15 @@ class Character extends Component {
             .catch(err => this.setState({ error: true }))
     }
 
-    getComicMarkup(comics) {
-        let comicItems = comics.items || []
+    getResourceMarkup(resource, name) {
+        let items = resource.items || []
         return (
             <div>
-                <p>Comics:</p>
+                <p>{name}:</p>
                 <ul>
-                    {comicItems.map((comic, index) =>
+                    {items.map((resource, index) =>
                         <li key={index}>
-                            <a href={`${comic.resourceURI}?${marvel.getAuthParams()}`}>{comic.name}</a>
+                            <a href={`${resource.resourceURI}?${marvel.getAuthParams()}`}>{resource.name}</a>
                         </li>)}
                 </ul>
             </div>
@@ -46,7 +49,10 @@ class Character extends Component {
                 <p>{this.state.description}</p>
                 <img src={thumbUrl} alt={this.state.name} />
                 <p>{this.state.modified}</p>
-                {this.getComicMarkup(this.state.comics)}
+                {this.getResourceMarkup(this.state.comics, 'Comics')}
+                {this.getResourceMarkup(this.state.events, 'Events')}
+                {this.getResourceMarkup(this.state.series, 'Series')}
+                {this.getResourceMarkup(this.state.stories, 'Stories')}
             </React.Fragment>
         )
     }
