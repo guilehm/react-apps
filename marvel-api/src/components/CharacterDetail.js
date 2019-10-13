@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import marvel from '../services/api-configurator'
 
-class Character extends Component {
+class CharacterDetail extends Component {
 
     state = {
         error: false,
@@ -74,4 +74,4 @@ class Character extends Component {
     }
 }
 
-export default Character
+export default CharacterDetail
