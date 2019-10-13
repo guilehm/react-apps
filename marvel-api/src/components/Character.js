@@ -3,16 +3,18 @@ import React, { Component } from 'react'
 class Character extends Component {
     render() {
         return (
-            <div>
-                <img src={this.props.url} alt={this.props.name} style={imageStyle} />
+            <div className="character">
+                <button
+                    type="button"
+                    className="character__sprite"
+                    style={{
+                        backgroundImage: `url(${this.props.url})`
+                    }}
+                />
+                <p className="character__name">{this.props.name}</p>
             </div>
         )
     }
-}
-
-
-const imageStyle = {
-    maxWidth: '100px',
 }
 
 export default Character
