@@ -1,22 +1,82 @@
-.App {
+body {
+  background-color: #ccc;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  position: relative;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.page__search {
+  padding-top: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.page__error {
+  position: absolute;
+  padding: 5px;
+  color: #fff;
+  background-color: #f44336;
 }
 
-.App-link {
-  color: #09d3ac;
+.characters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.characters__item {
+  display: inline-flex;
+  margin: 10px;
+}
+
+.character {
+  position: relative;
+  z-index: 20000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.character__sprite {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  border: none;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.character,
+.character__sprite {
+  width: 140px;
+  height: 140px;
+}
+
+.character__name {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+@media (min-width: 992px) {
+
+  .character,
+  .character__sprite {
+    width: 300px;
+    height: 300px;
+  }
 }
