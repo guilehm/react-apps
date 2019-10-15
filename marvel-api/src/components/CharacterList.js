@@ -23,13 +23,20 @@ class CharacterList extends Component {
             .catch(err => this.setState({ error: true }))
     }
 
+    filterCharacters(event) {
+        let value = event.target.value
+        let characters = this.state.characters || []
+        let filtered = characters.filter(char => char.name.includes(value))
+        this.setState({ filteredCharacters: filtered })
+    }
+
     render() {
         return (
             <ul className="characters">
                 <div className="page__search">
-                    <Search />
+                    <Search filterCharacters={this.filterCharacters} />
                 </div>
-                {this.state.characters.map(character =>
+                {this.state.filteredCharacters.map(character =>
                     <li className="characters__item" key={character.id}>
                         <Character
                             key={character.id}
