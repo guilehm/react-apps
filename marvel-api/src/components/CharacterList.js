@@ -24,18 +24,19 @@ class CharacterList extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                {this.state.characters.map(character =>
-                    <li className="characters__item" key={character.id}>
-                        <Character
-                            key={character.id}
-                            id={character.id}
-                            name={character.name}
-                            modified={character.modified}
-                            url={character.url} />
-                    </li>
-                )}
-            </React.Fragment>
+            <div className="page">
+                <ul className="characters">
+                    {this.state.characters.map(character =>
+                        <li className="characters__item" key={character.id}>
+                            <Character
+                                key={character.id}
+                                id={character.id}
+                                name={character.name}
+                                modified={character.modified}
+                                url={character.url} />
+                        </li>
+                    )}</ul>
+            </div>
         )
     }
 }
