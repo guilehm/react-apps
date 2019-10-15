@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Character from './Character'
+import Search from '../components/layout/Search'
 
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL
 
@@ -25,6 +26,9 @@ class CharacterList extends Component {
     render() {
         return (
             <ul className="characters">
+                <div className="page__search">
+                    <Search />
+                </div>
                 {this.state.characters.map(character =>
                     <li className="characters__item" key={character.id}>
                         <Character
