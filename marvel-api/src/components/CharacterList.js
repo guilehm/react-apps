@@ -35,7 +35,8 @@ class CharacterList extends Component {
                                 modified={character.modified}
                                 url={character.url} />
                         </li>
-                    )}</ul>
+                    )}
+                </ul>
             </div>
         )
     }
