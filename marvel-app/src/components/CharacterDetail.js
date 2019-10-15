@@ -4,14 +4,17 @@ import marvel from '../services/api-configurator'
 
 class CharacterDetail extends Component {
 
-    state = {
-        error: false,
-        characterId: this.props.characterId || '1009351',
-        comics: [],
-        events: [],
-        series: [],
-        stories: [],
-        urls: [],
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: false,
+            characterId: props.match.params.id,
+            comics: [],
+            events: [],
+            series: [],
+            stories: [],
+            urls: [],
+        }
     }
 
     componentDidMount() {
