@@ -26,14 +26,17 @@ class CharacterList extends Component {
     fetchCharacters() {
         let url = `${REACT_APP_API_URL}/characters/`
         axios.get(url)
-            .then(res => this.setState({ characters: res.data }))
+            .then(res => this.setState({
+                characters: res.data,
+                filteredCharacters: res.data,
+            }))
             .catch(err => this.setState({ error: true }))
     }
 
     filterCharacters(event) {
-        let value = event.target.value
+        let value = event.target.value.toLowerCase()
         let characters = this.state.characters || []
-        let filtered = characters.filter(char => char.name.includes(value))
+        let filtered = characters.filter(char => char.name.toLowerCase().includes(value))
         this.setState({ filteredCharacters: filtered })
     }
 
