@@ -7,9 +7,16 @@ const REACT_APP_API_URL = process.env.REACT_APP_API_URL
 
 
 class CharacterList extends Component {
+
     state = {
         characters: [],
+        filteredCharacters: [],
         error: false,
+    }
+
+    constructor(props) {
+        super(props)
+        this.filterCharacters = this.filterCharacters.bind(this)
     }
 
     componentDidMount() {
