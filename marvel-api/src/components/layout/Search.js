@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Search = ({ onChange, value }) => (
-    <input
-        type="text"
-        onChange={onChange}
-        value={value}
-        placeholder="Enter character name..."
-        autoFocus
-    />
-)
+class Search extends Component {
 
+    render() {
+        return (
+            <input
+                type="text"
+                onChange={this.props.filterCharacters}
+                placeholder="Enter character name..."
+                autoFocus
+            />
+        )
+    }
+
+}
 export default Search
