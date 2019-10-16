@@ -4,14 +4,14 @@ class Character extends Component {
     render() {
         return (
             <div className="character">
-                <button
+                <a
+                    href={`/characters/${this.props.id}/`}
                     type="button"
                     className="character__sprite"
-                    style={{
-                        backgroundImage: `url(${this.props.url})`
-                    }}
-                />
-                <p className="character__name">{this.props.name}</p>
+                    style={{ backgroundImage: `url(${this.props.url})` }}
+                >
+                    <p className="character__name"> {this.props.name}</p>
+                </a>
             </div>
         )
     }
