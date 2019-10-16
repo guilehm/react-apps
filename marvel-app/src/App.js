@@ -16,6 +16,7 @@ class App extends Component {
                     <div className="page">
                         <Route exact path="/" component={CharacterList} />
                         <Route exact path="/characters/:id/" component={CharacterDetail} />
+                        <Route exact path="*" component={CharacterList} />
                     </div>
                 </div>
             </Router>
