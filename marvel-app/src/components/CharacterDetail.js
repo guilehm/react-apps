@@ -8,6 +8,7 @@ class CharacterDetail extends Component {
         super(props);
         this.state = {
             error: false,
+            errorMessage: '',
             characterId: props.match.params.id,
             comics: [],
             events: [],
@@ -26,7 +27,10 @@ class CharacterDetail extends Component {
         url = `${url}?${marvel.getAuthParams()}`
         axios.get(url)
             .then(res => this.setState(res.data.data.results[0]))
-            .catch(err => this.setState({ error: true }))
+            .catch(err => this.setState({
+                error: true,
+                errorMessage: err.message,
+            }))
     }
 
     getResourceMarkup(resource, name) {
@@ -59,6 +63,9 @@ class CharacterDetail extends Component {
     }
 
     render() {
+        if (this.state.error) {
+            return (<h1>Erro: {this.state.errorMessage}</h1>)
+        }
         let thumb = this.state.thumbnail
         let thumbUrl = thumb ? `${thumb.path}.${thumb.extension}` : ''
         return (
