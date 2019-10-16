@@ -64,7 +64,7 @@ class CharacterDetail extends Component {
 
     render() {
         if (this.state.error) {
-            return (<h1>Erro: {this.state.errorMessage}</h1>)
+            return (<h1>Error: {this.state.errorMessage}</h1>)
         }
         let thumb = this.state.thumbnail
         let thumbUrl = thumb ? `${thumb.path}.${thumb.extension}` : ''
