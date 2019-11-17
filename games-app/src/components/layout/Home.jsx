@@ -1,9 +1,14 @@
 import React from 'react'
 import Search from './Search'
+import Game from '../Game'
+
 
 const Home = () => {
     return (
-        <Search />
+        <React.Fragment>
+            <Search />
+            <Game />
+        </React.Fragment>
     )
 }
 
