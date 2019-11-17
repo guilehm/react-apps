@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import GameList from '../components/GameList'
 import { getVisibleGames } from '../selectors'
+import * as GameActions from '../actions'
 
 
 const mapStateToProps = state => ({
