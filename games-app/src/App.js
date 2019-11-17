@@ -3,7 +3,7 @@ import './App.css';
 
 import Home from './components/layout/Home'
 
-function App() {
+const App = () => {
     return (
         <Home />
     );
