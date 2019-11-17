@@ -1,11 +1,13 @@
 import React from 'react'
 
+import Game from './GameItem'
 
-const GameList = ({ filteredGames = [], actions }) => {
+
+const GameList = ({ filteredGames, actions }) => {
     return (
         <ul>
             {filteredGames.map(game =>
-                <li>{game}</li>
+                <li><Game name={game.name} /></li>
             )}
         </ul>
     )

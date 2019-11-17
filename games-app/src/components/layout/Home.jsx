@@ -1,13 +1,12 @@
 import React from 'react'
 import Search from './Search'
-import GameList from '../GameList'
-
+import VisibleGameList from '../../containers/VisibleGameList'
 
 const Home = () => {
     return (
         <React.Fragment>
             <Search />
-            <GameList />
+            <VisibleGameList />
         </React.Fragment>
     )
 }
