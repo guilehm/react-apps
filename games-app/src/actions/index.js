@@ -1,4 +1,4 @@
 import * as types from '../constants/ActionTypes'
 
 
-export const populateGames = games => ({ type: types.POPULATE_GAME, games })
+export const addGame = game => ({ type: types.ADD_GAME, game })
