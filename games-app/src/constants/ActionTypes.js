@@ -1,0 +1,1 @@
+export const POPULATE_GAMES = 'POPULATE_GAMES'
