@@ -1,6 +1,6 @@
 import React from 'react'
-import Search from './Search'
-import VisibleGameList from '../../containers/VisibleGameList'
+import Search from '../../containers/Search.container'
+import VisibleGameList from '../../containers/GameList.container'
 
 const Home = () => {
     return (
