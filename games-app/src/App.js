@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 
 import Home from './components/layout/Home'
 
@@ -9,4 +9,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default App

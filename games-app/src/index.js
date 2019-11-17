@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-const reducer = () => ({})
+import reducer from './reducers'
+
+
 const store = createStore(reducer)
 
 ReactDOM.render(
@@ -13,4 +14,4 @@ ReactDOM.render(
         <App />
     </Provider>,
     document.getElementById('root')
-);
+)
