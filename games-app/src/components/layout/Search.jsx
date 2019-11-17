@@ -4,14 +4,15 @@ import React from 'react'
 const Search = ({ actions }) => {
     function handleSubmit(e) {
         const name = e.target.value.trim()
-        actions.addGame({ name: name })
+        if (name) actions.addGame({ name: name })
+        e.target.value = ''
     }
 
     return (
         <input
             type="text"
             placeholder="Enter game name..."
-            autoFocus
+            autoFocus={true}
             onBlur={handleSubmit}
         />
     )
