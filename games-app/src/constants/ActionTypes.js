@@ -1,1 +1,1 @@
-export const POPULATE_GAMES = 'POPULATE_GAMES'
+export const POPULATE_GAME = 'POPULATE_GAME'
