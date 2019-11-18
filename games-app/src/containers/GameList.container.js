@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import GameList from '../components/GameList'
-import { getVisibleGames } from '../selectors'
+import { getGameList } from '../selectors'
 import * as GameActions from '../actions'
 
 
 const mapStateToProps = state => ({
-    filteredGames: getVisibleGames(state)
+    games: getGameList(state)
 })
 
 const mapDispatchToProps = dispatch => ({
