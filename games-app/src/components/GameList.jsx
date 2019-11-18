@@ -3,10 +3,10 @@ import React from 'react'
 import Game from './GameItem'
 
 
-const GameList = ({ filteredGames, actions }) => {
+const GameList = ({ games, actions }) => {
     return (
         <ul>
-            {filteredGames.map(game =>
+            {games.map(game =>
                 <li><Game name={game.name} /></li>
             )}
         </ul>
