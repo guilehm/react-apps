@@ -11,6 +11,7 @@ const persistConfig = {
     key: 'root',
     storage,
 }
+const persistedReducer = persistReducer(persistConfig, reducer)
 
 const store = createStore(persistedReducer)
 ReactDOM.render(
