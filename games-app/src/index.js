@@ -7,8 +7,12 @@ import { createStore } from 'redux'
 import reducer from './reducers'
 
 
-const store = createStore(reducer)
+const persistConfig = {
+    key: 'root',
+    storage,
+}
 
+const store = createStore(persistedReducer)
 ReactDOM.render(
     <Provider store={store}>
         <App />
