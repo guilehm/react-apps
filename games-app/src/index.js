@@ -14,6 +14,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducer)
 
 const store = createStore(persistedReducer)
+const persistor = persistStore(store)
 ReactDOM.render(
     <Provider store={store}>
         <App />
