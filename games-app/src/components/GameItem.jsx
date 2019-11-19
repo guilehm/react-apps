@@ -6,21 +6,14 @@ import { useEffect } from 'react'
 const api = new Rawg()
 
 const Game = props => {
-
     useEffect(() => {
-        api.getGameData(3498)
-            .then(handleSuccess)
-            .catch(handleError)
-    }, [])
+        const fetchGameData = async () => {
+            const result = await api.getGameData(3498)
+            props.actions.populateGame(props.name, result.data)
+        }
+        fetchGameData()
+    }, [props.actions, props.name])
 
-    let handleError = error => {
-        console.log(error.message)
-    }
-
-    let handleSuccess = response => {
-        console.log(response.data)
-        return response.data
-    }
 
     return (
         <React.Fragment>
