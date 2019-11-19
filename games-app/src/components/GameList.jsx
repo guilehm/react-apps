@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Game from './GameItem'
+import { VisibleGameItem as Game } from '../containers/GameItem.container'
 
 
 const GameList = ({ games, actions }) => {
