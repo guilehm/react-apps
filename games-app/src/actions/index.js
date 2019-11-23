@@ -4,6 +4,8 @@ import Rawg from '../services/api'
 
 const API = new Rawg()
 
+export const deleteGame = id => ({ type: types.DELETE_GAME, id })
+
 export const addGame = game => {
     let handleSuccess = res => {
         let id = res.data.results[0].id
