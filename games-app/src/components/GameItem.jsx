@@ -55,7 +55,7 @@ const Game = props => {
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>
-                        R
+                        {props.name.slice(0, 1)}
                     </Avatar>
                 }
                 action={
