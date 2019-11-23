@@ -1,20 +1,23 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import GameItem from '../components/GameItem'
-import { getGameList } from '../selectors'
 import * as GameActions from '../actions'
 
 
-// const mapStateToProps = state => ({
-//     games: getGameList(state)
-// })
+const mapStateToProps = (state, ownProps) => {
+    // hardcoded for the first result
+    // I must find a better way to solve this
+    let props = state.games.filter(game => game.name === ownProps.name)[0]
+    return {...props}
+  }
+
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(GameActions, dispatch)
 })
 
 const VisibleGameItem = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(GameItem)
 
