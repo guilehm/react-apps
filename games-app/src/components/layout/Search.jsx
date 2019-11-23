@@ -13,6 +13,12 @@ const Search = ({ actions, loading, error }) => {
         e.target.value = ''
     }
 
+    function handleKeyDown(e) {
+        if (e.which === 13) {
+            handleSubmit(e)
+        }
+    }
+
     const label = () => {
         if (loading) return 'Loading ...'
         if (error) return 'Error'
