@@ -35,6 +35,7 @@ const Search = ({ actions, loading, error }) => {
             label={label()}
             onBlur={handleSubmit}
             autoFocus={true}
+            onKeyDown={handleKeyDown}
             variant="outlined" />
     )
 }
