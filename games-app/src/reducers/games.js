@@ -2,12 +2,12 @@ import {
     ADD_GAME,
 } from '../constants/ActionTypes'
 
-const initialState = [{ name: 'GTA' }]
 
-export default function games(state = initialState, action) {
+
+export default function games(state = [], action) {
     switch (action.type) {
         case ADD_GAME:
-            return [...state, { name: action.payload.name }]
+            return [...state, { ...action.payload }]
         default:
             return state
     }
