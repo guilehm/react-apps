@@ -22,8 +22,8 @@ const GameList = ({ games, actions }) => {
         <div className={classes.root}>
           <Grid container spacing={3}>
                 {games.map(game =>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Game {...game} actions={actions} />
+                    <Grid key={game.id} item xs={12} sm={6} md={4}>
+                        <Game key={game.id} {...game} actions={actions} />
                     </Grid>
                 )}
             </Grid>
