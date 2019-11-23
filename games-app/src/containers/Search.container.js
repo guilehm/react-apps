@@ -4,8 +4,15 @@ import { bindActionCreators } from 'redux'
 import * as GameActions from '../actions'
 
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        loading: state.layout.loading,
+    }
+}
+
+
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(GameActions, dispatch)
 })
 
-export default connect(null, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(Search)
