@@ -4,7 +4,7 @@ import React from 'react'
 const Search = ({ actions }) => {
     function handleSubmit(e) {
         const name = e.target.value.trim()
-        if (name) actions.addGame({ name: name })
+        if (name) actions.addGame({ name })
         e.target.value = ''
     }
 
