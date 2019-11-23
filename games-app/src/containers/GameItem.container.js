@@ -5,8 +5,8 @@ import * as GameActions from '../actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-    return {...ownProps}
-  }
+    return { ...ownProps }
+}
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(GameActions, dispatch)
