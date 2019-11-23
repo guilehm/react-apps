@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-const Search = ({ actions }) => {
+const Search = ({ actions, loading }) => {
     const classes = useStyles()
 
     function handleSubmit(e) {
@@ -28,7 +28,7 @@ const Search = ({ actions }) => {
         <form className={classes.root} noValidate autoComplete="off">
             <TextField
                 id="outlined-basic"
-                label="Game name"
+                label={loading ? 'Loading ...' : 'Game name'}
                 onBlur={handleSubmit}
                 variant="outlined" />
         </form>
