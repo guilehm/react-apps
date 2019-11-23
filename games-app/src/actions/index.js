@@ -14,12 +14,16 @@ export const addGame = game => {
         let id = res.data.results[0].id
         return API.getGameData(id)
     }
+
     return dispatch => {
         API.searchByName(game.name)
             .then(handleSuccess)
             .then(res => dispatch({
                 type: types.ADD_GAME,
                 payload: res.data
+            }))
+            .catch(err => dispatch({
+                type: types.SET_ERROR
             }))
     }
 }
