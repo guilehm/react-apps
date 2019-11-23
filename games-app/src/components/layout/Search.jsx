@@ -24,12 +24,23 @@ const Search = ({ actions, loading, error }) => {
         e.target.value = ''
     }
 
+    const label = () => {
+        if (loading) return 'Loading ...'
+        if (error) return 'Error'
+        return 'Game'
+    }
+
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <TextField
+                error={error}
+                helperText={
+                    error ? 'Ops... Game not found' : ''
+                }
                 id="outlined-basic"
-                label={loading ? 'Loading ...' : 'Game name'}
+                label={label()}
                 onBlur={handleSubmit}
+                autoFocus={true}
                 variant="outlined" />
         </form>
     )
