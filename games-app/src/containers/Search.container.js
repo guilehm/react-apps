@@ -7,6 +7,7 @@ import * as GameActions from '../actions'
 const mapStateToProps = (state, ownProps) => {
     return {
         loading: state.layout.loading,
+        error: state.layout.error,
     }
 }
 
