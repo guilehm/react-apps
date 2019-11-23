@@ -42,7 +42,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Game = props => {
-    console.log('será que consegui', props.actions)
     const classes = useStyles()
     const [expanded, setExpanded] = React.useState(false)
 
