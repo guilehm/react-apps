@@ -7,10 +7,11 @@ const Search = ({ actions, loading, error }) => {
     function handleSubmit(e) {
         const name = e.target.value.trim()
         if (name) {
-            actions.addGame({ name })
-            actions.setLoading()
+            actions.addSearchItems({ name })
+            // actions.addGame({ name })
+            // actions.setLoading()
         }
-        e.target.value = ''
+        // e.target.value = ''
     }
 
     function handleKeyDown(e) {
