@@ -64,7 +64,7 @@ const Game = props => {
                     </IconButton>
                 }
                 title={props.name}
-            // subheader="September 14, 2016"
+                subheader={`rating: ${props.rating} / ${props.rating_top}`}
             />
             <CardMedia
                 className={classes.media}
