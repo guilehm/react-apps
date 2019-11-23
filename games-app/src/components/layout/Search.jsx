@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-const Search = ({ actions, loading }) => {
+const Search = ({ actions, loading, error }) => {
     const classes = useStyles()
 
     function handleSubmit(e) {
