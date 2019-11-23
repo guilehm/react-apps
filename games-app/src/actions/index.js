@@ -1,5 +1,15 @@
 import * as types from '../constants/ActionTypes'
+import Rawg from '../services/api'
 
 
-export const addGame = game => ({ type: types.ADD_GAME, game })
-export const populateGame = (game, data) => ({ type: types.POPULATE_GAME, game, data })
+const API = new Rawg()
+
+export const addGame = game => {
+    return dispatch => {
+        API.searchByName(game.name)
+            .then(res => dispatch({
+                type: types.ADD_GAME,
+                payload: res.data.results[0]
+            }))
+    }
+}
