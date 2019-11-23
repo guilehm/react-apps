@@ -4,6 +4,9 @@ import Rawg from '../services/api'
 
 const API = new Rawg()
 
+export const setLoading = () => ({ type: types.SET_LOADING })
+export const unsetLoading = () => ({ type: types.SET_LOADING })
+
 export const deleteGame = id => ({ type: types.DELETE_GAME, id })
 
 export const addGame = game => {
