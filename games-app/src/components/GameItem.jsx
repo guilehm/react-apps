@@ -12,7 +12,7 @@ import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
+import Delete from '@material-ui/icons/Delete'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Game = props => {
+    console.log('será que consegui', props.actions)
     const classes = useStyles()
     const [expanded, setExpanded] = React.useState(false)
 
@@ -58,8 +59,8 @@ const Game = props => {
                     </Avatar>
                 }
                 action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
+                    <IconButton aria-label="settings" onClick={() => props.actions.deleteGame(props.id)}>
+                        <Delete />
                     </IconButton>
                 }
                 title={props.name}
