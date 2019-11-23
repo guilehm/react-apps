@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }))
 
 
-const GameList = ({ games }) => {
+const GameList = ({ games, actions }) => {
     const classes = useStyles()
 
     return (
@@ -23,7 +23,7 @@ const GameList = ({ games }) => {
           <Grid container spacing={3}>
                 {games.map(game =>
                     <Grid item xs={12} sm={6} md={4}>
-                        <Game {...game} />
+                        <Game {...game} actions={actions} />
                     </Grid>
                 )}
             </Grid>
