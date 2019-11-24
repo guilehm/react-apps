@@ -35,6 +35,10 @@ const SearchList = ({ items }) => {
         setChecked(newChecked)
     }
 
+    const isChecked = item => {
+        return Boolean(checked.filter(i => i.id === item.id).length)
+    }
+
     return (
         <List dense className={classes.root}>
             {items.slice(0, 5).map(item => {
