@@ -13,9 +13,9 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import Delete from '@material-ui/icons/Delete'
-import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import RedditIcon from '@material-ui/icons/Reddit'
+import LanguageIcon from '@material-ui/icons/Language'
 
 
 const useStyles = makeStyles(theme => ({
@@ -89,9 +89,15 @@ const Game = props => {
                     </IconButton>
                     : ''
                 }
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
+                {
+                    props.website ?
+                        <IconButton
+                            aria-label={props.slug}
+                            onClick={() => window.open(props.website)}>
+                            <LanguageIcon />
+                        </IconButton>
+                        : ''
+                }
                 <IconButton
                     className={clsx(classes.expand, {
                         [classes.expandOpen]: expanded,
