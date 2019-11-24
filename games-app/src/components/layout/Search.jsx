@@ -7,10 +7,19 @@ const Search = ({ actions, loading, error }) => {
     function handleSubmit(e) {
         const name = e.target.value.trim()
         if (name) {
-            actions.addGame({ name })
+            actions.addSearchItems({ name })
             actions.setLoading()
+        } else {
+            setTimeout(() => {
+                actions.clearSearchItems()
+            }, 300)
         }
-        e.target.value = ''
+    }
+
+    function handleKeyDown(e) {
+        if (e.which === 13) {
+            handleSubmit(e)
+        }
     }
 
     const label = () => {
@@ -29,6 +38,7 @@ const Search = ({ actions, loading, error }) => {
             label={label()}
             onBlur={handleSubmit}
             autoFocus={true}
+            onKeyDown={handleKeyDown}
             variant="outlined" />
     )
 }

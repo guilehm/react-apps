@@ -1,6 +1,12 @@
 import { createSelector } from 'reselect'
 
 
+const searchItems = state => state.searchItems
+export const getSearchItems = createSelector(
+    searchItems,
+    items => items
+)
+
 const getGames = state => state.games
 export const getGameList = createSelector(
     getGames,
