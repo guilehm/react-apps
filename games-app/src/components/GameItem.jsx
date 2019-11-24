@@ -13,9 +13,9 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { red } from '@material-ui/core/colors'
 import Delete from '@material-ui/icons/Delete'
-import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import RedditIcon from '@material-ui/icons/Reddit'
 
 
 const useStyles = makeStyles(theme => ({
@@ -80,9 +80,15 @@ const Game = props => {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
+                {
+                    props.reddit_url ?
+                    <IconButton
+                        aria-label={props.reddit_name || 'reddit'}
+                        onClick={() => window.open(props.reddit_url)}>
+                        <RedditIcon />
+                    </IconButton>
+                    : ''
+                }
                 <IconButton aria-label="share">
                     <ShareIcon />
                 </IconButton>
