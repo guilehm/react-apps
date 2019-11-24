@@ -33,10 +33,10 @@ const SearchList = ({ items, actions }) => {
         }
 
         setChecked(newChecked)
+        actions.addGame(value.id)
         setTimeout(() => {
             actions.clearSearchItems()
-            actions.addGame(value.id)
-        }, 500)
+        }, 300)
 
     }
 
