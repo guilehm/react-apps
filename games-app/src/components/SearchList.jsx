@@ -56,7 +56,7 @@ const SearchList = ({ items }) => {
                             <Checkbox
                                 edge="end"
                                 onChange={handleToggle(item)}
-                                checked={false}
+                                checked={isChecked(item)}
                                 inputProps={{ 'aria-labelledby': labelId }}
                             />
                         </ListItemSecondaryAction>
