@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-const SearchList = ({ items }) => {
+const SearchList = ({ items, actions }) => {
 
     const classes = useStyles()
     const [checked, setChecked] = React.useState([1])
@@ -33,6 +33,10 @@ const SearchList = ({ items }) => {
         }
 
         setChecked(newChecked)
+        setTimeout(() => {
+            actions.clearSearchItems()
+        }, 500)
+
     }
 
     const isChecked = item => {
