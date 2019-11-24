@@ -10,7 +10,9 @@ const Search = ({ actions, loading, error }) => {
             actions.addSearchItems({ name })
             actions.setLoading()
         } else {
-            actions.clearSearchItems()
+            setTimeout(() => {
+                actions.clearSearchItems()
+            }, 300)
         }
     }
 
