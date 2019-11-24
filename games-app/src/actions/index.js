@@ -17,6 +17,18 @@ export const addSearchItems = game => {
             }))
     }
 }
+export const addGame = gameId => {
+    return dispatch => {
+        API.getGameData(gameId)
+            .then(res => dispatch({
+                type: types.ADD_GAME,
+                payload: res.data,
+            }))
+            .catch(() => dispatch({
+                type: types.SET_ERROR,
+            }))
+    }
+}
 // export const addGame = game => {
 //     let handleSuccess = res => {
 //         let id = res.data.results[0].id
