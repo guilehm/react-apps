@@ -5,10 +5,7 @@ import * as GameActions from '../actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-    // hardcoded for the first result
-    // I must find a better way to solve this
-    let props = state.games.filter(game => game.name === ownProps.name)[0]
-    return {...props}
+    return {...ownProps}
   }
 
 
