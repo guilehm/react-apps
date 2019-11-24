@@ -7,6 +7,7 @@ const API = new Rawg()
 export const setLoading = () => ({ type: types.SET_LOADING })
 export const unsetLoading = () => ({ type: types.SET_LOADING })
 export const deleteGame = id => ({ type: types.DELETE_GAME, id })
+export const clearSearchItems = () => ({type: types.CLEAR_SEARCH_ITEMS })
 export const addSearchItems = game => {
     return dispatch => {
         API.searchByName(game.name)
