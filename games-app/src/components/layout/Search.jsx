@@ -8,10 +8,8 @@ const Search = ({ actions, loading, error }) => {
         const name = e.target.value.trim()
         if (name) {
             actions.addSearchItems({ name })
-            // actions.addGame({ name })
-            // actions.setLoading()
+            actions.setLoading()
         }
-        // e.target.value = ''
     }
 
     function handleKeyDown(e) {
