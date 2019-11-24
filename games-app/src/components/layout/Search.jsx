@@ -9,6 +9,8 @@ const Search = ({ actions, loading, error }) => {
         if (name) {
             actions.addSearchItems({ name })
             actions.setLoading()
+        } else {
+            actions.clearSearchItems()
         }
     }
 
