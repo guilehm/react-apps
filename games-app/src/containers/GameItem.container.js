@@ -8,7 +8,6 @@ const mapStateToProps = (state, ownProps) => {
     return {...ownProps}
   }
 
-
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(GameActions, dispatch)
 })
