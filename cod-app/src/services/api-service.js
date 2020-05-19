@@ -1,9 +1,10 @@
 import axios from 'axios'
 
 
-class Cod {
+class CodApi {
     constructor() {
-        this.baseUrl = 'https://api.tracker.gg/api/v2/warzone/standard/profile'
+        // this.baseUrl = 'https://api.tracker.gg/api/v2/warzone/standard/profile'
+        this.baseUrl = 'http://localhost:9999'
     }
 
     getProfileData(platform, username) {
@@ -13,4 +14,4 @@ class Cod {
 }
 
 
-export default Cod
+export default CodApi
