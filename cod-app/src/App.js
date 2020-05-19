@@ -1,8 +1,8 @@
 import React from 'react'
 import './App.css'
 
-import PlayerDetail from './components/Player'
+import Home from './components/layouts/Home'
 
-const App = () => <PlayerDetail name='Guilehm91' platform='psn' />
+const App = () => <Home />
 
 export default App

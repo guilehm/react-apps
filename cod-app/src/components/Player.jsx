@@ -13,7 +13,7 @@ const PlayerDetail = props => {
 
     return (
         <div>
-            <h2>Hey! {props.name}</h2>
+            <h3>Hey! {props.name}</h3>
             <p>{data ? JSON.stringify(data.data.platformInfo) : null}</p>
             <button
                 name='search'
