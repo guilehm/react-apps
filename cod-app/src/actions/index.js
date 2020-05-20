@@ -3,12 +3,20 @@ import CodApi from '../services/api-service'
 
 const Api = new CodApi()
 
+
+export const setLoading = () => ({ type: types.SET_LOADING })
+export const unsetLoading = () => ({ type: types.SET_LOADING })
+
 export const fetchPlayer = player => {
     return dispatch => {
         Api.getProfileData(player.username, player.platform)
             .then(res => dispatch({
                 type: types.FETCH_PLAYER,
                 payload: res.data,
+            }))
+            .catch(err => dispatch({
+                type: types.SET_ERROR,
+                payload: err.message,
             }))
     }
 }

@@ -78,7 +78,7 @@ const Chart = ({ players, actions}) => {
 
             <select
                 name='platform'
-                value='kills'
+                value={stat}
                 onChange={e => updateStat(e.target.value)}>
                 <option value='kills'>kills</option>
                 <option value='deaths'>deaths</option>

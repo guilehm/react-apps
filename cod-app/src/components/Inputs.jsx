@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 const Inputs = ({ error, players, actions }) => {
@@ -36,23 +36,31 @@ const Inputs = ({ error, players, actions }) => {
                 <option value='atvi'>activision</option>
             </select>
             <button
+                style={{backgroundColor: 'green', color: 'white'}}
                 className='mr-1'
                 name='save'
                 onClick={handleSubmit}>
                 save
             </button>
             <button
+                style={{backgroundColor: 'blue', color: 'white'}}
                 className='mr-1'
                 name='update'
                 onClick={handleUpdate}>
                 update
             </button>
             <button
+                style={{backgroundColor: 'red', color: 'white'}}
                 className='mr-1'
                 name='clear'
                 onClick={handleClear}>
                 clear
             </button>
+            {
+                error ?
+                <p style={{color: 'red'}}>please check the username and platform</p>
+                : ''
+            }
         </React.Fragment>
     )
 }
