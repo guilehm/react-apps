@@ -8,6 +8,7 @@ const PlayerDetail = props => {
         (async () => {
             const api = new CodApi()
             const response = await api.getProfileData(props.platform, props.name)
+            if (!response) return
             setData(response.data)
         })();
       }, [props.name, props.platform]);
