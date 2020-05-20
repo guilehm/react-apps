@@ -5,10 +5,10 @@ import * as am4charts from "@amcharts/amcharts4/charts"
 import am4themes_animated from "@amcharts/amcharts4/themes/animated"
 
 
-const Chart = ({ players, actions}) => {
+const Chart = ({ players }) => {
 
     useEffect(() => {
-
+        if (!players.length > 0) return
         const data = players.map(p => {
             const battleRoyale = p.segments
                 .find(s => s.metadata.name === 'Battle Royale')
@@ -63,9 +63,29 @@ const Chart = ({ players, actions}) => {
     }, [players])
 
     return (
-        <div id="chartdiv"
-            style={{ width: "100%", height: "500px" }}>
-        </div>
+        <React.Fragment>
+            {
+                players.length > 0 ?
+                <React.Fragment>
+                    <h2>{stat}</h2>
+
+                    <select
+                        name='platform'
+                        value='kills'
+                        onChange={e => updateStat(e.target.value)}>
+                        <option value='kills'>kills</option>
+                        <option value='deaths'>deaths</option>
+                        <option value='downs'>downs</option>
+                        <option value='kdRatio'>kd</option>
+                        <option value='wins'>wins</option>
+                    </select>
+                    <div id="chartdiv"
+                        style={{ width: "100%", height: "500px" }}>
+                    </div>
+                </React.Fragment>
+                : ''
+            }
+        </React.Fragment>
     )
 }
 

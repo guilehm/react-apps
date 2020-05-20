@@ -29,3 +29,9 @@ export const updateList = ({ players }) => {
             }))
     }
 }
+
+export const clearList = () => {
+    return dispatch => dispatch({
+        type: types.CLEAR_PLAYER_STATS,
+    })
+}

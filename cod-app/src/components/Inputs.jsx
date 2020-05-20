@@ -12,9 +12,8 @@ const Inputs = ({ error, players, actions }) => {
         actions.fetchPlayer({ username, platform })
     }
 
-    const handleUpdate = () => {
-        actions.updateList({players})
-    }
+    const handleUpdate = () => actions.updateList({players})
+    const handleClear = () => actions.clearList()
 
     return (
         <React.Fragment>
@@ -37,14 +36,22 @@ const Inputs = ({ error, players, actions }) => {
                 <option value='atvi'>activision</option>
             </select>
             <button
+                className='mr-1'
                 name='save'
                 onClick={handleSubmit}>
                 save
             </button>
             <button
+                className='mr-1'
                 name='update'
                 onClick={handleUpdate}>
                 update
+            </button>
+            <button
+                className='mr-1'
+                name='clear'
+                onClick={handleClear}>
+                clear
             </button>
         </React.Fragment>
     )
