@@ -5,7 +5,7 @@ const Api = new CodApi()
 
 export const fetchPlayer = player => {
     return dispatch => {
-        Api.getProfileData(player.platform, player.username)
+        Api.getProfileData(player.username, player.platform)
             .then(res => dispatch({
                 type: types.FETCH_PLAYER,
                 payload: res.data,
