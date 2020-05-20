@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import PlayerDetail from '../../components/Player'
+import Header from './Header'
 
 
 const Home = () => {
@@ -17,9 +18,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Hello!</h1>
-            <p>thanks for using our app</p>
-
+            <Header />
             <input
                 value={username}
                 name='username'
