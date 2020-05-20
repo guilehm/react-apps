@@ -3,8 +3,7 @@ import axios from 'axios'
 
 class CodApi {
     constructor() {
-        // this.baseUrl = 'https://api.tracker.gg/api/v2/warzone/standard/profile'
-        this.baseUrl = 'http://localhost:9999'
+        this.baseUrl = 'https://dark-bot-alive.herokuapp.com/api/v2/warzone/standard/profile'
     }
 
     getProfileData(username, platform) {
