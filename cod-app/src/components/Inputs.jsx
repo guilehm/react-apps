@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const Inputs = ({ error, actions }) => {
+const Inputs = ({ error, players, actions }) => {
 
     const [username, setUsername] = useState('')
     const [platform, setPlatform] = useState('psn')
@@ -10,6 +10,10 @@ const Inputs = ({ error, actions }) => {
         if (!username) return
         setUsername('')
         actions.fetchPlayer({ username, platform })
+    }
+
+    const handleUpdate = () => {
+        actions.updateList({players})
     }
 
     return (
@@ -36,6 +40,11 @@ const Inputs = ({ error, actions }) => {
                 name='save'
                 onClick={handleSubmit}>
                 save
+            </button>
+            <button
+                name='update'
+                onClick={handleUpdate}>
+                update
             </button>
         </React.Fragment>
     )

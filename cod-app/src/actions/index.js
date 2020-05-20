@@ -12,3 +12,20 @@ export const fetchPlayer = player => {
             }))
     }
 }
+
+export const updateList = ({ players }) => {
+    const requestData = players.map(p => ({
+        username: p.platformInfo.platformUserHandle,
+        platform: p.platformInfo.platformSlug,
+    }))
+    const promises = requestData.map(r =>
+        Api.getProfileData(r.username, r.platform))
+
+    return dispatch => {
+        Promise.all(promises)
+            .then(res => dispatch({
+                type: types.UPDATE_PLAYER_STATS,
+                payload: res.map(v => v.data.data),
+            }))
+    }
+}
