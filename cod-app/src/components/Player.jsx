@@ -6,8 +6,8 @@ const PlayerDetail = props => {
     const [data, setData] = useState()
     useEffect(() => {
         (async () => {
-            const api = new CodApi()
-            const response = await api.getProfileData(props.platform, props.name)
+            const Api = new CodApi()
+            const response = await Api.getProfileData(props.platform, props.name)
             if (!response) return
             setData(response.data)
         })();
