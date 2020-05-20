@@ -2,10 +2,11 @@ import { connect } from 'react-redux'
 import Inputs from '../components/Inputs'
 import { bindActionCreators } from 'redux'
 import * as PlayerActions from '../actions'
-import { getErrorStatus } from '../selectors'
+import { getErrorStatus, getPlayerList } from '../selectors'
 
 
 const mapStateToProps = (state, ownProps) => ({
+    players: getPlayerList(state),
     error: getErrorStatus(state),
 })
 
