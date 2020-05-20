@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 
 const getPlayers = state => state.players
-export const getGameList = createSelector(
+export const getPlayerList = createSelector(
     getPlayers,
     players => players
 )
