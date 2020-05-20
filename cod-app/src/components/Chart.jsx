@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import CodApi from '../services/api-service'
+import React, { useEffect } from 'react'
+
 import * as am4core from "@amcharts/amcharts4/core"
 import * as am4charts from "@amcharts/amcharts4/charts"
 import am4themes_animated from "@amcharts/amcharts4/themes/animated"
 
 
-const Chart = props => {
-    const [playersData, setPlayersData] = useState([])
+const Chart = ({ players, actions}) => {
 
-    const createChart = () => {
+    useEffect(() => {
 
-        const data = playersData.map(p => {
+        const data = players.map(p => {
             const battleRoyale = p.segments
                 .find(s => s.metadata.name === 'Battle Royale')
             return {
@@ -18,6 +17,7 @@ const Chart = props => {
                 kills: battleRoyale.stats.kills.value
             }
         })
+        am4core.useTheme(am4themes_animated)
         const chart = am4core.create("chartdiv", am4charts.XYChart)
         chart.data = data
         chart.scrollbarX = new am4core.Scrollbar()
@@ -60,23 +60,14 @@ const Chart = props => {
         })
 
         chart.cursor = new am4charts.XYCursor()
-    }
+    }, [players])
 
-    useEffect(() => {
-        const api = new CodApi()
-        am4core.useTheme(am4themes_animated)
-        if (props.playerList.length > 0) {
-            (async () => {
-                const promises = props.playerList
-                    .map(p => api.getProfileData(p.platform, p.username))
-                const values = await Promise.all(promises)
-                setPlayersData(values.map(v => v.data.data))
-            })()
-        }
-    }, [props.playerList])
-    console.log(playersData)
-    if (playersData) createChart()
-    return null
+    return (
+        <div id="chartdiv"
+            style={{ width: "100%", height: "500px" }}>
+        </div>
+    )
 }
+
 
 export default Chart

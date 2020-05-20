@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import Chart from './Chart'
 
 
-const ChartGroup = props => {
+const Inputs = ({ error, players, actions }) => {
 
-
-    const [playerList, setPlayerList] = useState([])
     const [username, setUsername] = useState('')
     const [platform, setPlatform] = useState('psn')
 
     const handleSubmit = () => {
         if (!username) return
-        setPlayerList([...playerList, { username, platform }])
         setUsername('')
+        actions.fetchPlayer({ username, platform })
     }
 
+    const handleUpdate = () => {
+        actions.updateList({players})
+    }
 
     return (
         <React.Fragment>
@@ -38,22 +38,16 @@ const ChartGroup = props => {
             </select>
             <button
                 name='save'
-                onClick={() => handleSubmit()}>
-                    save
+                onClick={handleSubmit}>
+                save
             </button>
-
-            <div
-                id={`chartdiv`}
-                style={{ width: '100%', height: '500px' }}>
-            </div>
-            {
-                playerList.length > 0 ?
-                <Chart playerList={playerList} />
-                : ''
-            }
-
+            <button
+                name='update'
+                onClick={handleUpdate}>
+                update
+            </button>
         </React.Fragment>
     )
 }
 
-export default ChartGroup
+export default Inputs

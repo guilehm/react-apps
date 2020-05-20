@@ -7,7 +7,7 @@ class CodApi {
         this.baseUrl = 'http://localhost:9999'
     }
 
-    getProfileData(platform, username) {
+    getProfileData(username, platform) {
         const url = `${this.baseUrl}/${platform}/${encodeURIComponent(username)}`
         return axios.get(url)
     }
