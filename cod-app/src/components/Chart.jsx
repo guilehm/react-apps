@@ -85,6 +85,9 @@ const Chart = ({ players, actions}) => {
                 <option value='downs'>downs</option>
                 <option value='kdRatio'>kd</option>
                 <option value='wins'>wins</option>
+                <option value='gamesPlayed'>games played</option>
+                <option value='contracts'>contracts</option>
+                <option value='level'>level</option>
             </select>
             <div id='chartdiv'
                 style={{ width: '100%', height: '500px' }}>
