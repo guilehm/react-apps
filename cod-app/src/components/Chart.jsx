@@ -87,7 +87,7 @@ const Chart = ({ players, actions}) => {
                 <option value='wins'>wins</option>
                 <option value='gamesPlayed'>games played</option>
                 <option value='contracts'>contracts</option>
-                <option value='level'>level</option>
+                <option value='score'>score</option>
             </select>
             <div id='chartdiv'
                 style={{ width: '100%', height: '500px' }}>
