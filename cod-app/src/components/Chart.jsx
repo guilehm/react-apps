@@ -95,6 +95,14 @@ const Chart = ({ players, actions}) => {
             <div id='chartdiv'
                 style={{ width: '100%', height: '500px' }}>
             </div>
+            <div class='container'>
+                {players.map(p => (
+                    <figure style={{float: 'left'}}>
+                        <img src={p.platformInfo.avatarUrl} alt={p.platformInfo.platformUserIdentifier} style={{maxWidth: '50px'}}/>
+                        <figcaption>{p.platformInfo.platformUserIdentifier}</figcaption>
+                  </figure>
+                ))}
+            </div>
         </React.Fragment>
         : null
     )
